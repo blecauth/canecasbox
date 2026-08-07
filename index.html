@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Baú de Canecas — Vitrine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wordmark">
+      <span class="wordmark-main">Baú de</span>
+      <span class="wordmark-accent">Canecas</span>
+    </div>
+    <label class="search-box" for="searchInput">
+      <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="16.2" y1="16.2" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input id="searchInput" type="text" placeholder="Buscar caneca, tema ou frase..." autocomplete="off">
+    </label>
+  </header>
+
+  <main>
+    <p class="section-eyebrow">Passe o dedo para ver a coleção</p>
+
+    <section class="carousel-wrap" aria-label="Vitrine de canecas">
+      <div class="carousel-edge carousel-edge--left" aria-hidden="true"></div>
+      <div class="carousel-edge carousel-edge--right" aria-hidden="true"></div>
+
+      <div class="carousel-track" id="track" tabindex="0">
+        <!-- cards inseridos via JS a partir de PRODUCTS -->
+      </div>
+
+      <p class="empty-state" id="emptyState" hidden>Nenhuma caneca encontrada com esse termo.</p>
+    </section>
+
+    <div class="carousel-index" id="indexLabel">01 / 01</div>
+
+    <div class="buy-bar">
+      <button class="buy-btn" id="buyBtn" type="button">
+        <span id="buyBtnLabel">Comprar essa caneca</span>
+      </button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Feito à mão, pedido no seu ritmo — direto pelo WhatsApp.</p>
+  </footer>
+
+  <!-- Modal de confirmação -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Fechar">×</button>
+      <p class="modal-eyebrow">Confirmar pedido</p>
+      <h2 class="modal-title" id="modalTitle">—</h2>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-meta">
+        <span class="modal-price" id="modalPrice"></span>
+        <span class="modal-stamp" id="modalCode"></span>
+      </div>
+      <p class="modal-hint">Ao confirmar, você será direcionado ao WhatsApp com o código dessa caneca preenchido.</p>
+      <button class="modal-confirm" id="modalConfirm" type="button">Confirmar e abrir WhatsApp</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
